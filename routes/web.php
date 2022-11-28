@@ -75,8 +75,7 @@ Route::prefix('cms/admin')->middleware('auth:admin,teacher')->group(function () 
     Route::resource('teachers', TeacherController::class);
     Route::post('teachers_update/{id}', [TeacherController::class, 'update'])->name('teachers_update');
     //Teacher-Edit-b-profile
-    Route::get('teacher_edit' , [TeacherController::class , 'edit'])->name('teacher_edit');
-    Route::post('update_eteacher' , [TeacherController::class , 'update']);
+    // Route::post('update_eteacher/{id}' , [TeacherController::class , 'update']);
     // Route::get('employee_edit' , [EmployeeController::class , 'edit'])->name('employee_edit');
     // Route::post('update_employee' , [EmployeeController::class , 'update']);
     //Student
@@ -102,8 +101,11 @@ Route::prefix('cms/admin')->middleware('auth:admin,teacher')->group(function () 
     //Subscribes
     Route::resource('subscribes', SubscribeController::class);
     //Edit-Profile&&update-profile
+
     Route::get('edit/profile', [UserAuthController::class, 'editProfile'])->name('dashboard.editprofile');
     Route::post('update/profile', [UserAuthController::class, 'updateProfile'])->name('dashboard.updateprofile');
+    Route::get('edit/profileTeacher' , [UserAuthController::class , 'editProfileTeacher'])->name('dashboard.editTeacher');
+
     // Route::get('edit/profile',[UserAuthController::class , 'editProfile'])->name('dashboard.edit-profile');
     // Route::post('update/profile',[UserAuthController::class , 'updateProfile'])->name('dashboard.updateprofile');
     //Edit-Password&&update-password

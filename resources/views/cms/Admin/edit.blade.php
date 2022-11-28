@@ -158,7 +158,7 @@
             formData.append('first_name', document.getElementById('first_name').value);
             formData.append('last_name', document.getElementById('last_name').value);
             formData.append('email', document.getElementById('email').value);
-            formData.append('password', document.getElementById('password').value);
+            // formData.append('password', document.getElementById('password').value);
             formData.append('confirm_password', document.getElementById('confirm_password').value);
             formData.append('gender', document.getElementById('gender').value);
             formData.append('status', document.getElementById('status').value);

@@ -191,7 +191,7 @@ class AdminController extends Controller
         if (!$validator->fails()) {
             $admins = Admin::findOrFail($id);
             $admins->email = $request->get('email');
-            $admins->password = Hash::make($request->get('password'));
+            // $admins->password = Hash::make($request->get('password'));
             $admins->confirm_password = Hash::make($request->get('confirm_password'));
             $isUpdate = $admins->save();
 

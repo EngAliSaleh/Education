@@ -287,7 +287,7 @@
 
 
 
-                        
+
                         <li class="nav-header">User Mangment</li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
@@ -301,9 +301,9 @@
 
 
                             <ul class="nav nav-treeview">
-                               
-                                   
-                        
+
+
+
                                     <li class="nav-item">
                                         <a href="{{ route('admins.index') }}" class="nav-link">
                                             <i class="fas fa-list-ul nav-icon"></i>
@@ -311,11 +311,11 @@
                                             <p>Index</p>
                                         </a>
                                     </li>
-                             
-                                
-                               
-                                        
-                                 
+
+
+
+
+
                                     <li class="nav-item">
                                         <a href="{{ route('admins.create') }}" class="nav-link">
                                             <i class="fas fa-plus nav-icon"></i>
@@ -323,8 +323,8 @@
                                             <p>Create</p>
                                         </a>
                                     </li>
-                                
-                    
+
+
                             </ul>
                         </li>
 
@@ -629,7 +629,7 @@
                                         <p>Index</p>
                                     </a>
                                 </li>
-                                
+
 
 
                             </ul>
@@ -651,18 +651,31 @@
 
                         @elseif(Auth::guard('teacher')->id())
                         <li class="nav-item">
-                            <a href="{{ route('teacher_edit') }}" class="nav-link">
+                            <a href="{{ route('dashboard.editprofile')}}"class="nav-link">
                                 <i class="fas fa-user-edit nav-icon"></i>
                                 <p>Edit Your Profile</p>
                             </a>
                         </li>
                         @endif
+                        @if(Auth::guard('admin')->id())
+
                         <li class="nav-item">
                             <a href="{{ route('dashboard.editpassword') }}" class="nav-link">
                                 <i class="fas fa-lock nav-icon"></i>
                                 <p>Change Password</p>
                             </a>
                         </li>
+                        @endif
+                        @if(Auth::guard('teacher')->id())
+
+                        <li class="nav-item">
+                            <a href="{{ route('dashboard.editpassword') }}" class="nav-link">
+                                <i class="fas fa-lock nav-icon"></i>
+                                <p>Change Password</p>
+                            </a>
+                        </li>
+                        @endif
+
                         <li class="nav-item">
                             <a href="{{ route('dashboard.logout') }}" class="nav-link">
                                 <i class="fas  fa-arrow-right nav-icon"></i>

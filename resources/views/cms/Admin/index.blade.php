@@ -105,7 +105,7 @@
     @section('scripts')
         <script>
             function performDestroy(id, referance) {
-                let url = '/cms/admin/admins/' + id; //حطينا سلاش قبل بعد اسم الجدول عشان في بعديت باراميتر والي هوا ال اي دي 
+                let url = '/cms/admin/admins/' + id; //حطينا سلاش قبل بعد اسم الجدول عشان في بعديت باراميتر والي هوا ال اي دي
                 confirmDestroy(url, referance);
             }
         </script>

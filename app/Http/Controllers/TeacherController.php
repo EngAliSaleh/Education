@@ -28,18 +28,18 @@ class TeacherController extends Controller
 
 
         $teachers = Teacher::orderBy('id' ,'desc');
-        
+
 
         if ($request->get('email')) {
             $teachers = Teacher::where('email', 'like', '%' . $request->email . '%');
         }
-        
-        
+
+
 
         $teachers = $teachers->paginate(5);
 
         return response()->view('cms.teacher.index' , compact('teachers'));
-      
+
 
     }
 
@@ -55,7 +55,7 @@ class TeacherController extends Controller
         $cities = City::all();
         $countries = Country::all();
         return response()->view('cms.teacher.create', compact('cities', 'countries','roles'));
-       
+
 
     }
 
@@ -159,6 +159,7 @@ class TeacherController extends Controller
         return response()->view('cms.teacher.edit', compact('cities', 'teachers', 'countries'));
     }
 
+   
     /**
      * Update the specified resource in storage.
      *
@@ -179,8 +180,8 @@ class TeacherController extends Controller
             'address' => ['required'],
             'city_id' => ['required'],
             'country_id' => ['required'],
-            'password' => ['required', 'string', 'min:3', 'max:1000'],
-            'confirm_password' => 'required|same:password|min:3',
+            // 'password' => ['required', 'string', 'min:3', 'max:1000'],
+            // 'confirm_password' => 'required|same:password|min:3',
             'email' => 'required',
             'level' => 'required',
 
@@ -189,8 +190,8 @@ class TeacherController extends Controller
         if (!$validator->fails()) {
             $teachers = Teacher::findOrFail($id);
             $teachers->email = $request->get('email');
-            $teachers->password = Hash::make($request->get('password'));
-            $teachers->confirm_password = Hash::make($request->get('confirm_password'));
+            // $teachers->password = Hash::make($request->get('password'));
+            // $teachers->confirm_password = Hash::make($request->get('confirm_password'));
             $teachers->level = $request->get('level');
             $isUpdate = $teachers->save();
             if ($isUpdate) {
@@ -243,7 +244,7 @@ class TeacherController extends Controller
          $isDeleted = $teacher->delete();
          return response()->json(['icon' => 'success', 'title' => 'Deleted is Succesfully'], 200);
         }
- 
-        
+
+
      }
 }

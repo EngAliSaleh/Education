@@ -74,16 +74,8 @@
                                     <input type="email" class="form-control" name="email" id="email"
                                         placeholder=" Enter Your Email" value="{{ $teachers->email }}">
                                 </div>
-                                <div class="form-group">
-                                    <label for="Password">Password</label>
-                                    <input type="password" class="form-control" name="password" id="password"
-                                        placeholder=" Enter Your Password" value="{{ $teachers->password }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="confirm_password">Confirm Password</label>
-                                    <input type="password" class="form-control" name="confirm_password" id="confirm_password"
-                                        placeholder=" Enter Your Password" value="{{ $teachers->confirm_password }}">
-                                </div>
+                              
+                         
                                 <div class="form-group">
                                     <label for="level">Level</label>
                                     <input type="text" class="form-control" name="level" id="level"
@@ -162,8 +154,8 @@
             formData.append('first_name', document.getElementById('first_name').value);
             formData.append('last_name', document.getElementById('last_name').value);
             formData.append('email', document.getElementById('email').value);
-            formData.append('password', document.getElementById('password').value);
-            formData.append('confirm_password', document.getElementById('confirm_password').value);
+            // formData.append('password', document.getElementById('password').value);
+            // formData.append('confirm_password', document.getElementById('confirm_password').value);
             formData.append('level', document.getElementById('level').value);
             formData.append('gender', document.getElementById('gender').value);
             formData.append('status', document.getElementById('status').value);
