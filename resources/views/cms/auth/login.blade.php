@@ -26,7 +26,8 @@
             
             <div class="card-body ">
                 <div class="card-header text-center border-0"  >
-                    <a  class="h1" style="color: #0eb582;font-size: 80px"><b>{{ env('APP_NAME') }}</b></a>
+                    {{-- <a  class="h1" style="color: #0eb582;font-size: 80px"><b>{{ env('APP_NAME') }}</b></a> --}}
+                    <a  class="h1" style="color: #0eb582;font-size: 80px"><b>Education</b></a>
                 </div>
                 <p class="font-weight-bold	 text-center" style=" 15px;" class="login-box-msg ">Sign In as <span  class="h5"  style="text-transform: capitalize ;color: #0eb582 ;text-decoration: underline">{{  $guard }}</span> To Enter
                     your Website-Dashboard</p>

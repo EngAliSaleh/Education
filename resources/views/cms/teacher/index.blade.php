@@ -61,7 +61,7 @@
             <tr>
 
         <td>{{ $teacher->id }}</td>
-        {{-- <td>  <img class="img-circle img-bordered-sm" src="{{asset('storage/images/teacher/'.$teacher->user->image)}}" width="60" height="60" alt="User Image"></td> --}}
+        <td>  <img class="img-circle img-bordered-sm" src="{{asset('storage/images/teacher/'.$teacher->user->image)}}" width="60" height="60" alt="User Image"></td>
         <td>{{ $teacher->user ? $teacher->user->first_name : 'Not Value' }}</td>
         <td>{{ $teacher->user ? $teacher->user->last_name : 'Not Value' }}</td>
         <td>{{ $teacher->email }}</td>

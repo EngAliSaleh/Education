@@ -89,7 +89,8 @@
 
 
     {{-- dashboard-js-files --}}
-    <script src="{{ asset('cms/dist/js/pages/dashboard.js') }}"></script>
+    {{-- <script src="{{ asset('cms/plugins/jquery/jquery.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset('cms/dist/js/pages/dashboard.js') }}"></script> --}}
     <script src="{{ asset('cms/plugins/toastr/toastr.min.js') }}"></script>
     <script src="{{ asset('cms/js/crud.js') }}"></script>
 

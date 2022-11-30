@@ -57,51 +57,23 @@ class UserAuthController extends Controller
     {
         if (auth('admin')->check()) {
 
-        $admins = Admin::findOrFail(Auth::guard('admin')->id());
+            $admins = Admin::findOrFail(Auth::guard('admin')->id());
 
-          $countries = Country::all();
+            $countries = Country::all();
             $cities = City::all();
             return response()->view('cms.auth.Admin-edit-profile', compact('countries', 'cities', 'admins'));
+        } elseif (auth('teacher')->check()) {
+            $teachers = Teacher::findOrFail(Auth::guard('teacher')->id());
+
+            $countries = Country::all();
+            $cities  = City::all();
+            return response()->view('cms.teacher.edit', compact('cities', 'teachers', 'countries'));
         }
-        elseif (auth('teacher')->check()) {
-        $teachers = Teacher::findOrFail(Auth::guard('teacher')->id());
-
-        $countries = Country::all();
-        $cities  = City::all();
-        return response()->view('cms.teacher.edit', compact('cities', 'teachers', 'countries'));
-            }
-        
-
-        // $teachers = Teacher::findOrFail(Auth::guard('teacher')->id());
-        //   $countries = Country::all();
-        //     $cities = City::all();
-        //     return response()->view('cms.auth.Teacher-edit-profile', compact('countries', 'cities', 'teachers'));
-
-        // if (auth('admin')->check()) {
-        //     $roles = Role::where('guard_name', 'admin')->get();
-
-        //     $countries = Country::all();
-        //     $cities = City::all();
-        //     $admins = Admin::findOrFail(Auth::id());
-
-        //     return response()->view('cms.auth.Admin-edit-profile', compact('roles','countries', 'cities', 'admins'));
-        // }
-
-        // if (auth('teacher')->check()) {
-
-        //     $roles = Role::where('guard_name', 'teacher')->get();
-        //     $countries = Country::all();
-        //     $cities = City::all();
-        //     $teacher = Teacher::findOrFail(Auth::id());
-
-        //     return response()->view('cms.auth.Teacher-edit-profile', compact('cities', 'teacher', 'roles','countries'));
-        // }
     }
 
     public function editProfileTeacher()
     {
         $teachers = Teacher::findOrFail(Auth::guard('teacher')->id());
-
         $countries = Country::all();
         $cities  = City::all();
         return response()->view('cms.teacher.edit', compact('cities', 'teachers', 'countries'));
@@ -227,108 +199,32 @@ class UserAuthController extends Controller
     }
 
 
-    //Update-password-Profile-DashBoard//
 
-    // public function updatePassword(Request $request)
-    // {
-
-    //     if (auth('admin')->check()) {
-
-    //         $validator = validator(
-    //             $request->all(),
-    //             [
-    //                 'password' => 'required|string|min:3|max:25',
-    //                 'new_password' => 'required|string|min:3|max:25|confirmed',
-    //                 'new_password_confirmation' => 'required|string|min:6|max:25',
-    //             ],
-    //             []
-    //         );
-    //         if (!$validator->fails()) {
-
-    //             $admin = Admin::findOrFail(Auth::id());
-    //             if (Hash::check($request->get('password'), $admin->password)) {
-    //                 $admin->password = Hash::make($request->get('new_password'));
-    //                 $isUpdate = $admin->update();
-
-
-    //                 if ($isUpdate) {
-
-    //                     return response()->json(['icon' => 'success', 'title' => 'Updated Password successfully'], 200);
-    //                 } else {
-    //                     return response()->json(['icon' => 'error', 'title' => 'failed To Update Password'], 400);
-    //                 }
-    //             } else {
-    //                 return response()->json(['icon' => 'error', 'title' => 'Old Password Is Wrong'], 400);
-    //             }
-    //         } else {
-    //             return response()->json(['icon' => 'error', 'title' => $validator->getMessageBag()->first()], 400);
-    //         }
-    //     }
-
-
-    //     elseif (auth('teacher')->check()) {
-
-    //         $validator = validator(
-    //             $request->all(),
-    //             [
-    //                 // 'password' => 'required|string|min:6|max:25',
-    //                 // 'new_password' => 'required|string|min:3|max:25|confirmed',
-    //                 // 'new_password_confirmation' => 'required|string|min:3|max:25',
-    //             ],
-    //             []
-    //         );
-    //         if (!$validator->fails()) {
-
-    //             $teacher = Teacher::findOrFail(Auth::id());
-    //             if (Hash::check($request->get('password'), $teacher->password)) {
-    //                 $teacher->password = Hash::make($request->get('new_password'));
-    //                 $isUpdate = $teacher->update();
-    //                 return ['redirect' => route('main')];
-
-    //                 if ($isUpdate) {
-
-    //                     return response()->json(['icon' => 'success', 'title' => 'Updated Password successfully'], 200);
-    //                 } else {
-    //                     return response()->json(['icon' => 'error', 'title' => 'failed To Update Password'], 400);
-    //                 }
-    //             } else {
-    //                 return response()->json(['icon' => 'error', 'title' => 'Old Password Is Wrong'], 400);
-    //             }
-    //         } else {
-    //             return response()->json(['icon' => 'error', 'title' => $validator->getMessageBag()->first()], 400);
-    //         }
-    //     }
-    // }
-
-    public function updatePassword(Request $request){
+    public function updatePassword(Request $request)
+    {
         $guard = auth('admin')->check() ? 'admin' : 'teacher';
-        $validator = Validator($request->all(),[
-
-            // 'current_password' => 'required|string',
-            // 'new_password' => 'required|string|confirmed',
-            // 'new_password_confirmation' => 'required|string'
+        $validator = Validator($request->all(), [
 
 
-                    'password' => 'required|string|min:3|max:25',
-                    'new_password' => 'required|string|min:3|max:25|confirmed',
-                    'new_password_confirmation' => 'required|string|min:6|max:25',
+
+
+            'password' => 'required|string|min:3|max:25',
+            'new_password' => 'required|string|min:3|max:25|confirmed',
+            'new_password_confirmation' => 'required|string|min:3|max:25',
         ]);
-        if(!$validator->fails()){
+        if (!$validator->fails()) {
             $user = auth($guard)->user();
             $user->password = Hash::make($request->get('new_password'));
             $isSaved = $user->save();
             // return ['redirect' =>route('admins.index')];
 
-            if($isSaved){
-            return response()->json(['icon' => 'success' , 'title'=> 'تم تغيير كلمة المرور بنجاح'], 200 );
-
-
-         } else {
-            return response()->json(['icon' => 'error' , 'title' => 'فشلت عملية تغيير كلمة المرور'] , 400);
-        }
-    }
-        else {
-            return response()->json(['icon' => 'error' , 'title' => $validator->getMessageBag()->first()], 400);
+            if ($isSaved) {
+                return response()->json(['icon' => 'success', 'title' => 'Password changed successfully'], 200);
+            } else {
+                return response()->json(['icon' => 'error', 'title' => 'Password change failed '], 400);
+            }
+        } else {
+            return response()->json(['icon' => 'error', 'title' => $validator->getMessageBag()->first()], 400);
         }
     }
 }

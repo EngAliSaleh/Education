@@ -32,7 +32,7 @@
 
 <!-- account form section starts  -->
 
-<div class="account-form">
+<div class="account-form ">
 
    <div id="close-form" class="fas fa-times"></div>
 

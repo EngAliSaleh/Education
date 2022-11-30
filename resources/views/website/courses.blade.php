@@ -58,7 +58,7 @@
 
     
 
-      {{-- <div class="box hide">
+      <div class="box hide abc">
          <div class="image">
             <img src="images/course-2-9.jpg" alt="">
             <h3>dancing</h3>
@@ -72,7 +72,7 @@
                <span> <i class="fas fa-clock"></i> 6 hours </span>
             </div>
          </div>
-      </div> --}}
+      </div>
 
    </div>
    

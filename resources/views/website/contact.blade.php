@@ -93,7 +93,7 @@
 
    <div class="accordion-container">
 
-      <div class="accordion active">
+      <div class="accordion ">
          <div class="accordion-heading">
             <h3>how to contact for help?</h3>
             <i class="fas fa-angle-down"></i>

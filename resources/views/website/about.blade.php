@@ -73,7 +73,7 @@
          
              
           @foreach ($teachers as $teacher)
-           <div class="swiper-slide slide " style="width: 368px; margin-right: 20px;">
+           <div class="swiper-slide slide " x   >
                <div class="image">
                   <img src="{{ asset('storage/images/teacher/'.$teacher->user->image) }}" alt=""> 
                   <div class="share">
@@ -106,7 +106,7 @@
 
       <div class="swiper-wrapper">
          @foreach ( $reviews as $review )
-         <div class="swiper-slide slide "style="width: 368px; margin-right: 20px;">
+         <div class="swiper-slide slide" >
             <p>{{ $review->reviewr_description }}</p>
             <img src="{{ asset('storage/images/review/'.$review->reviewr_image) }}" alt=""> 
             <h3>{{ $review->reviewr_name }}</h3>
