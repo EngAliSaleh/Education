@@ -24,7 +24,7 @@ class TeacherController extends Controller
     {
         // $this->authorize('viewAny' , Teacher::class);
 
-        $teachers = Teacher::with('user')->orderBy('id' , 'desc')->paginate(10);
+        $teachers = Teacher::with('user')->orderBy('id')->paginate(10);
 
 
         $teachers = Teacher::orderBy('id' ,'desc');

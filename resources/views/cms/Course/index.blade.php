@@ -101,7 +101,7 @@
           </table>
         </div>
         <!-- /.card-body -->
-        {{ $courses->links() }}
+    
       </div>
       <!-- /.card -->
     </div>

@@ -94,7 +94,7 @@
                     </table>
                 </div>
                 <!-- /.card-body -->
-                {{ $subjects->links() }}
+            
 
             </div>
             <!-- /.card -->

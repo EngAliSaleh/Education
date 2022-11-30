@@ -237,8 +237,10 @@ class AdminController extends Controller
     public function destroy(Admin $admin)
     {
        if($admin->id == Auth::id()){
-        return redirect()->route('admins.index')
-        ->withErrors(trans('operation is denied'));
+      
+         return redirect()->route('admins.index')
+         ->withErrors(trans('operation is denied'));
+        
        }
        else{
         $admin->user()->delete();

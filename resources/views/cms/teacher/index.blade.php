@@ -88,7 +88,7 @@
 
 </div>
 <!-- /.card-body -->
-{{ $teachers->links() }}
+
 </div>
 <!-- /.card -->
 </div>

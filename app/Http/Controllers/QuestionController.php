@@ -14,7 +14,11 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $questions = Question::all();
+       
+  
+        $questions = Question::orderBy('id',)->paginate(10); //'desc' ترتيب
+
+
         return response()->view('cms.Question.index', compact('questions'));
     }
 
