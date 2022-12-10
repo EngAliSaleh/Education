@@ -16,7 +16,7 @@ class QuestionController extends Controller
     {
        
   
-        $questions = Question::orderBy('id',)->paginate(10); //'desc' ترتيب
+        $questions = Question::orderBy('id',)->paginate(20); //'desc' ترتيب
 
 
         return response()->view('cms.Question.index', compact('questions'));

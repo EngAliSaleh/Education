@@ -30,7 +30,7 @@ class PermissionController extends Controller
         
         
 
-        $permissions = $permissions->orderBy('id' , 'desc')->paginate(5);
+        $permissions = $permissions->orderBy('id' , 'desc')->paginate(50);
 
 
         return response()->view('cms.Spatie.permission.index' , compact('permissions'));

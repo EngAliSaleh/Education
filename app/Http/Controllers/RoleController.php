@@ -14,8 +14,6 @@ class RoleController extends Controller
      */
     public function index(Request $request)
     {
-        $roles = Role::orderBy('id' );
-
 
         $roles = Role::orderBy('id' ,'desc');
         

@@ -10,7 +10,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class Teacher extends Authenticatable
 {
-    use HasFactory ,HasRoles;
+    use HasFactory ;
 
 
     

@@ -9,7 +9,7 @@ class SubjectController extends Controller
 {
     public function index(Request $request)
     {
-        $subjects = Subject::withCount('courses')->orderBy('id' , 'desc')->simplePaginate(7);
+        $subjects = Subject::withCount('courses')->orderBy('id' , 'desc')->simplePaginate(50);
 
 
         $subjects = Subject::orderBy('id' ,'desc');

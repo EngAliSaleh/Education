@@ -15,7 +15,7 @@ class ReviewController extends Controller
     public function index()
     {
         
-        $reviews = Review::orderBy('id',)->paginate(10); //'desc' ترتيب
+        $reviews = Review::orderBy('id',)->paginate(20); //'desc' ترتيب
 
         return response()->view('cms.review.index', compact('reviews'));
 

@@ -14,7 +14,7 @@ class CountryController extends Controller
      */
     public function index(Request $request)
     {
-        $countries = Country::withCount('cities')->orderBy('id' , 'desc')->Paginate(5);
+        $countries = Country::withCount('cities')->orderBy('id' , 'desc')->Paginate(50);
     
 
 

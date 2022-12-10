@@ -24,7 +24,7 @@ class SubscribeController extends Controller
         
         
 
-        $subscribes = $subscribes->paginate(5);
+        $subscribes = $subscribes->paginate(100);
 
         return response()->view('cms.subscribe.index' , compact('subscribes'));
     }

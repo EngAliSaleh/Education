@@ -86,7 +86,6 @@
         </div>
         
         <!-- /.card-body -->
-        {{ $roles->links() }}
       </div>
       <!-- /.card -->
     </div>

@@ -25,7 +25,7 @@ class ContactController extends Controller
             $contacts = Contact::where('contact_phone', 'like', '%' . $request->contact_phone . '%');
         }
         
-        $contacts = $contacts->orderBy('id' , 'desc')->paginate(5);
+        $contacts = $contacts->orderBy('id' , 'desc')->paginate(20);
 
         
         return response()->view('cms.Contact.index' , compact('contacts'));

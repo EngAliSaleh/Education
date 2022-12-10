@@ -16,7 +16,7 @@ class LinkController extends Controller
      */
     public function index()
     {
-        $links = Link::orderBy('id',)->paginate(10); //'desc' ترتيب
+        $links = Link::orderBy('id',)->paginate(20); //'desc' ترتيب
         return response()->view('cms.Link.index', compact('links'));
     }
 

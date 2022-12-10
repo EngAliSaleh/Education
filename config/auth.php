@@ -45,15 +45,20 @@ return [
             'driver' => 'session',
             'provider' => 'admins',  // من خلال ال جارد يتم تسجيل الدخول والخروج
         ],
-         
+
         'teacher' => [
             'driver' => 'session',
             'provider' => 'teachers',  // من خلال ال جارد يتم تسجيل الدخول والخروج
         ],
-         
+
         'student' => [
             'driver' => 'session',
             'provider' => 'students',  // من خلال ال جارد يتم تسجيل الدخول والخروج
+        ],
+
+        'admin-api' => [
+            'driver' => 'passport',
+            'provider' => 'admins',
         ],
     ],
 
@@ -99,6 +104,7 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
     ],
 
     /*

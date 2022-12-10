@@ -386,7 +386,7 @@
                             </ul>
                         </li>
 
-                        <li class="nav-header">Contect Mangment</li>
+                        <li class="nav-header">Content Mangment</li>
 
 
 

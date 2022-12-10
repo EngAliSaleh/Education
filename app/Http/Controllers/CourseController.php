@@ -10,7 +10,7 @@ class CourseController extends Controller
 {
     public function index(Request $request)
     {
-        $courses = Course::withCount('subject')->orderBy('id' , 'desc')->simplePaginate(7);
+        $courses = Course::withCount('subject')->orderBy('id' , 'desc')->simplePaginate(30);
 
 
         $courses = Course::orderBy('id' ,'desc');

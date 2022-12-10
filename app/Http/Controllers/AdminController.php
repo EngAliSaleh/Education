@@ -21,7 +21,7 @@ class AdminController extends Controller
      */
     public function index(Request $request)
     {
-        $admins = Admin::with('user')->orderBy('id' , 'desc')->paginate(10);
+        $admins = Admin::with('user')->orderBy('id' , 'desc')->paginate(5);
 
 
         $admins = Admin::orderBy('id' ,'desc');
