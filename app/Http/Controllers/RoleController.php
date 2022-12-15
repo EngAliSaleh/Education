@@ -29,6 +29,8 @@ class RoleController extends Controller
 
         $roles = $roles->paginate(5);
 
+        // return response()->view('cms.Spatie.role.index' , compact('roles'));
+        $roles = Role::withCount('permissions')->orderBy('id' , 'desc')->Paginate(5);
         return response()->view('cms.Spatie.role.index' , compact('roles'));
     }
 

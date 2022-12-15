@@ -21,25 +21,31 @@ class AdminController extends Controller
      */
     public function index(Request $request)
     {
-        $admins = Admin::with('user')->orderBy('id' , 'desc')->paginate(5);
 
 
-        $admins = Admin::orderBy('id' ,'desc');
-        
+        $this->authorize('viewAny', Admin::class);
+
+
+
+        $admins = Admin::with('user')->orderBy('id', 'desc')->paginate(5);
+
+
+        $admins = Admin::orderBy('id', 'desc');
+
 
         if ($request->get('email')) {
             $admins = Admin::where('email', 'like', '%' . $request->email . '%');
         }
-        
-        
+
+
 
         $admins = $admins->paginate(5);
 
-        return response()->view('cms.Admin.index' , compact('admins'));
+        return response()->view('cms.Admin.index', compact('admins'));
     }
-        
 
-    
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -48,13 +54,11 @@ class AdminController extends Controller
      */
     public function create()
     {
-        // $this->authorize('create' , Admin::class);
-        $roles =  Role::where('guard_name','admin')->get();
+        $this->authorize('create', Admin::class);
+        $roles =  Role::where('guard_name', 'admin')->get();
         $cities = City::all();
         $countries = Country::all();
-        return response()->view('cms.Admin.create', compact('cities', 'countries','roles'));
-       
-
+        return response()->view('cms.Admin.create', compact('cities', 'countries', 'roles'));
     }
 
     /**
@@ -94,7 +98,7 @@ class AdminController extends Controller
 
 
 
-                
+
 
 
                 $roles = Role::findOrFail($request->get('role_id'));
@@ -197,7 +201,7 @@ class AdminController extends Controller
 
             if ($isUpdate) {
                 $users = $admins->user;
-                
+
                 if (request()->hasFile('image')) {
                     $image = $request->file('image');
                     $imageName = time() . 'image.' . $image->getClientOriginalExtension();
@@ -236,18 +240,16 @@ class AdminController extends Controller
      */
     public function destroy(Admin $admin)
     {
-       if($admin->id == Auth::id()){
-      
-         return redirect()->route('admins.index')
-         ->withErrors(trans('operation is denied'));
-        
-       }
-       else{
-        $admin->user()->delete();
-        $isDeleted = $admin->delete();
-        return response()->json(['icon' => 'success', 'title' => 'Deleted is Succesfully'], 200);
-       }
 
-       
+
+        if ($admin->id == Auth::id()) {
+
+            return redirect()->route('admins.index')
+                ->withErrors(trans('operation is denied'));
+        } else {
+            $admin->user()->delete();
+            $isDeleted = $admin->delete();
+            return response()->json(['icon' => 'success', 'title' => 'Deleted is Succesfully'], 200);
+        }
     }
 }

@@ -18,10 +18,10 @@ class StudentController extends Controller
      */
     public function index(Request $request)
     {
-        $students = Student::with('user')->orderBy('id' , 'desc')->paginate(50);
+        $students = Student::with('user')->orderBy('id' , 'desc');
 
 
-        $students = Student::orderBy('id' ,'desc');
+  
         
 
         if ($request->get('student_email')) {
@@ -214,6 +214,12 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
+
+
+
+        $this->authorize('delete' , Student::class);
+
+        
         $students = Student::destroy($id);
 
         return response()->json(['icon' => 'success', 'title' => 'Deleted is Succesfully'], 200);

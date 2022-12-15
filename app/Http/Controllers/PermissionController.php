@@ -17,10 +17,6 @@ class PermissionController extends Controller
     {
         $permissions = Permission::orderBy('id' );
 
-
-        $permissions = Permission::orderBy('id' ,'desc');
-        
-
         if ($request->get('guard_name')) {
             $permissions = Permission::where('guard_name', 'like', '%' . $request->guard_name . '%');
         }

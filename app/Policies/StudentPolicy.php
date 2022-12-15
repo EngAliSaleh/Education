@@ -65,7 +65,13 @@ class StudentPolicy
      */
     public function delete()
     {
-        //
+        if(auth('admin')->check()){
+            return auth()->user()->hasPermissionTo('Delete-student')
+             ?  $this->allow()
+             : $this->deny('You can not Delete-student');
+         }
+         
+
     }
 
     /**

@@ -81,9 +81,11 @@
         <td class="btn-group-vertical">
             <a href="{{ route('students.edit', $student->id) }}" type="button"
                 class="btn btn-info">Edite</a>
-                
+
+                @can('Delete-student')                      
             <a href="#" onclick="performDestroy({{ $student->id }},this )"
                 class="btn btn-danger">Delete</a>
+                @endcan
             <a href="{{ route('students.show',$student->id) }}" type="button" class="btn btn-success">Show</a>
         </td>
     </tr>
@@ -94,7 +96,7 @@
 
 </div>
 
-{{ $students->links() }}
+
 </div>
 
 </div>

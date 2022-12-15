@@ -9,10 +9,18 @@ use Spatie\Permission\Traits\HasRoles;
 
 class Admin extends Authenticatable
 {
-    use HasFactory,HasRoles;
+    use HasFactory, HasRoles;
 
-    
-    public function user (){
-        return $this->morphOne(User::class , 'actor' , 'actor_type' , 'actor_id' , 'id');
-}
+    public function getFullNameAttribute()
+    {
+        return $this->user->first_name . " " . $this->user->last_name;
+    }
+    public function getImagesAttribute()
+    {
+        return $this->image;
+    }
+    public function user()
+    {
+        return $this->morphOne(User::class, 'actor', 'actor_type', 'actor_id', 'id');
+    }
 }

@@ -19,7 +19,15 @@ class AdminPolicy
     public function viewAny()
     {
         
+        if(auth('admin')->check()){
+            return auth()->user()->hasPermissionTo('Index-Admin')
+             ?  $this->allow()
+             : $this->deny(' can not open Index-Admin');
+         }
+        
+         
      }
+
          
     
 
@@ -43,7 +51,14 @@ class AdminPolicy
      */
     public function create()
     {
-      
+        
+        if(auth('admin')->check()){
+            return auth()->user()->hasPermissionTo('Create-Admin')
+             ?  $this->allow()
+             : $this->deny(' can not open Create-Admin');
+         }
+         
+         
     }
 
     /**

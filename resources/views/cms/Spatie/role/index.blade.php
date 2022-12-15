@@ -40,10 +40,10 @@
             <div class="col-md-4">
                   <button class="btn btn-success btn-md" type="submit">Search filter</button>
                   <a href="{{route('roles.index')}}"  class="btn btn-danger">End search</a>
-                  {{-- @can('Create-City') --}}
+          
                       
                   <a href="{{route('roles.create')}}"><button type="button" class="btn btn-md btn-info"> Add New Roles </button></a>
-                  {{-- @endcan --}}
+                 
             </div>
 
                  </div>
@@ -67,8 +67,14 @@
                     <td>{{ $role->id }}</td>
                     <td> {{ $role->guard_name }}</td>
                     <td>{{ $role->name }}</td>
-                    <td><a href="{{route('roles.permissions.index',$role->id)}}"
-                      class="btn btn-info">({{$role->permissions_count}})
+                    {{-- <td>
+                      <a href="{{route('roles.permissions.index',$role->id)}}"
+                      class="btn btn-info">({{$role->permissions_count}})</td> --}}
+                      <td>
+                        <a href="{{ route('roles.permissions.index' , $role->id)}}"
+                          class="btn btn-primary"> ({{ $role->permissions_count }}) 
+                        </a>
+                      </td>
       
                     
                     
