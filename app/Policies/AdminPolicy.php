@@ -16,20 +16,18 @@ class AdminPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function viewAny()
-    {
-        
-        if(auth('admin')->check()){
-            return auth()->user()->hasPermissionTo('Index-Admin')
-             ?  $this->allow()
-             : $this->deny(' can not open Index-Admin');
-         }
-        
-         
-     }
+    // public function viewAny()
+    // {
 
-         
-    
+    //     if (auth('admin')->check()) {
+    //         return auth()->user()->hasPermissionTo('Index-Admin')
+    //             ?  $this->allow()
+    //             : $this->deny(' can not open Index-Admin');
+    //     }
+    // }
+
+
+
 
     /**
      * Determine whether the user can view the model.
@@ -40,7 +38,6 @@ class AdminPolicy
      */
     public function view()
     {
-        
     }
 
     /**
@@ -49,17 +46,15 @@ class AdminPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function create()
-    {
-        
-        if(auth('admin')->check()){
-            return auth()->user()->hasPermissionTo('Create-Admin')
-             ?  $this->allow()
-             : $this->deny(' can not open Create-Admin');
-         }
-         
-         
-    }
+    // public function create()
+    // {
+
+    //     if (auth('admin')->check()) {
+    //         return auth()->user()->hasPermissionTo('Create-Admin')
+    //             ?  $this->allow()
+    //             : $this->deny(' can not open Create-Admin');
+    //     }
+    // }
 
     /**
      * Determine whether the user can update the model.
@@ -70,7 +65,6 @@ class AdminPolicy
      */
     public function update()
     {
-        
     }
 
     /**
@@ -82,7 +76,6 @@ class AdminPolicy
      */
     public function delete()
     {
-        
     }
 
     /**
@@ -106,6 +99,5 @@ class AdminPolicy
      */
     public function forceDelete()
     {
-        
     }
 }

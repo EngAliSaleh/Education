@@ -23,7 +23,7 @@ class AdminController extends Controller
     {
 
 
-        $this->authorize('viewAny', Admin::class);
+        // $this->authorize('viewAny', Admin::class);
 
 
 
@@ -54,7 +54,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        $this->authorize('create', Admin::class);
+        // $this->authorize('create', Admin::class);
         $roles =  Role::where('guard_name', 'admin')->get();
         $cities = City::all();
         $countries = Country::all();

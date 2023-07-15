@@ -211,7 +211,7 @@
                                 <img class="brand-image img-circle elevation-3"
                                     src="{{ asset('images/userSolid.png') }}"alt="User Image">
                             @endif
-                       
+
 
                         @endif
 
@@ -227,8 +227,8 @@
                             <a href="#" class="d-block"> {{ auth('admin')->user()->full_name }}</a>
                         @elseif (Auth::guard('teacher')->id())
                             <a href="#" class="d-block"> {{ auth('teacher')->user()->full_name }}</a>
-                        @elseif (Auth::guard('trainer')->id())
-                            <a href="#" class="d-block"> {{ auth('trainer')->user()->full_name }}</a>
+                        {{-- @elseif (Auth::guard('trainer')->id())
+                            <a href="#" class="d-block"> {{ auth('trainer')->user()->full_name }}</a> --}}
                         @elseif (Auth::guard('student')->id())
                             <a href="#" class="d-block"> {{ auth('student')->user()->full_name }}</a>
                         @else
@@ -271,7 +271,7 @@
                         </li>
 
                         <li class="nav-header">Roles / Permissions</li>
-                        @canAny('Index-Role', 'Create-Role')
+                        {{-- @canAny('Index-Role', 'Create-Role') --}}
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="bi bi-layers-fill"></i>
@@ -287,7 +287,7 @@
 
 
                                 <ul class="nav nav-treeview">
-                                    @can('Index-Role')
+                                    {{-- @can('Index-Role') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('roles.index') }}" class="nav-link">
                                                 <i class="fas fa-list-ul nav-icon"></i>
@@ -295,9 +295,9 @@
                                                 <p>Index</p>
                                             </a>
                                         </li>
-                                    @endcan
+                                    {{-- @endcan --}}
 
-                                    @can('Create-Role')
+                                    {{-- @can('Create-Role') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('roles.create') }}" class="nav-link">
                                                 <i class="fas fa-plus nav-icon"></i>
@@ -305,13 +305,13 @@
                                                 <p>Create</p>
                                             </a>
                                         </li>
-                                    @endcan
+                                    {{-- @endcan --}}
 
 
                                 </ul>
                             </li>
-                        @endcanAny
-                        @canAny('Index-permission', 'Create-permission')
+                        {{-- @endcanAny --}}
+                        {{-- @canAny('Index-permission', 'Create-permission') --}}
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="bi bi-pass-fill"></i>
@@ -322,7 +322,7 @@
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
-                                    @can('Index-permission')
+                                    {{-- @can('Index-permission') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('permissions.index') }}" class="nav-link">
                                                 <i class="fas fa-list-ul nav-icon"></i>
@@ -330,8 +330,8 @@
                                                 <p>Index</p>
                                             </a>
                                         </li>
-                                    @endcan
-                                    @can('Create-permission')
+                                    {{-- @endcan --}}
+                                    {{-- @can('Create-permission') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('permissions.create') }}" class="nav-link">
                                                 <i class="fas fa-plus nav-icon"></i>
@@ -339,17 +339,17 @@
                                                 <p>Create</p>
                                             </a>
                                         </li>
-                                    @endcan
+                                    {{-- @endcan --}}
 
                                 </ul>
                             </li>
-                        @endcanAny
+                        {{-- @endcanAny --}}
 
 
 
 
                         <li class="nav-header">User Mangment</li>
-                        @canAny('Index-Admin', 'Create-Admin')
+                        {{-- @canAny('Index-Admin', 'Create-Admin') --}}
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="bi bi-person-circle"></i>
@@ -363,7 +363,7 @@
                                 <ul class="nav nav-treeview">
 
 
-                                    @can('Index-Admin')
+                                    {{-- @can('Index-Admin') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('admins.index') }}" class="nav-link">
                                                 <i class="fas fa-list-ul nav-icon"></i>
@@ -371,13 +371,13 @@
                                                 <p>Index</p>
                                             </a>
                                         </li>
-                                    @endcan
+                                    {{-- @endcan --}}
 
 
 
 
 
-                                    @can('Create-Admin')
+                                    {{-- @can('Create-Admin') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('admins.create') }}" class="nav-link">
                                                 <i class="fas fa-plus nav-icon"></i>
@@ -385,15 +385,15 @@
                                                 <p>Create</p>
                                             </a>
                                         </li>
-                                    @endcan
+                                    {{-- @endcan --}}
 
 
                                 </ul>
                             </li>
-                        @endcanAny
+                        {{-- @endcanAny --}}
 
 
-                        @canAny('Index-Teacher', 'Create-Teacher')
+                        {{-- @canAny('Index-Teacher', 'Create-Teacher') --}}
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="bi bi-person-circle"></i>
@@ -404,7 +404,7 @@
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
-                                    @can('Index-Teacher')
+                                    {{-- @can('Index-Teacher') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('teachers.index') }}" class="nav-link">
                                                 <i class="fas fa-list-ul nav-icon"></i>
@@ -412,8 +412,8 @@
                                                 <p>Index</p>
                                             </a>
                                         </li>
-                                    @endcan
-                                    @can('Create-Teacher')
+                                    {{-- @endcan --}}
+                                    {{-- @can('Create-Teacher') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('teachers.create') }}" class="nav-link">
                                                 <i class="fas fa-plus nav-icon"></i>
@@ -421,12 +421,12 @@
                                                 <p>Create</p>
                                             </a>
                                         </li>
-                                    @endcan
+                                    {{-- @endcan --}}
 
                                 </ul>
                             </li>
-                        @endcanAny
-                        @canAny('Index-Student', 'Create-Student')
+                        {{-- @endcanAny --}}
+                        {{-- @canAny('Index-Student', 'Create-Student') --}}
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="bi bi-person-circle"></i>
@@ -437,7 +437,7 @@
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
-                                    @can('Index-Student')
+                                    {{-- @can('Index-Student') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('students.index') }}" class="nav-link">
                                                 <i class="fas fa-list-ul nav-icon"></i>
@@ -445,8 +445,8 @@
                                                 <p>Index</p>
                                             </a>
                                         </li>
-                                    @endcan
-                                    @can('Create-Student')
+                                    {{-- @endcan --}}
+                                    {{-- @can('Create-Student') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('students.create') }}" class="nav-link">
                                                 <i class="fas fa-plus nav-icon"></i>
@@ -454,17 +454,17 @@
                                                 <p>Create</p>
                                             </a>
                                         </li>
-                                    @endcan
+                                    {{-- @endcan --}}
 
                                 </ul>
                             </li>
-                        @endcanAny
+                        {{-- @endcanAny --}}
 
                         <li class="nav-header">Content Mangment</li>
 
 
 
-                        @canAny('Index-Country', 'Create-Country')
+                        {{-- @canAny('Index-Country', 'Create-Country') --}}
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-city"></i>
@@ -474,27 +474,27 @@
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
-                                    @can('Index-Country')
+                                    {{-- @can('Index-Country') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('countries.index') }}" class="nav-link">
                                                 <i class="fas fa-list-ul nav-icon"></i>
                                                 <p>Index</p>
                                             </a>
                                         </li>
-                                    @endcan
-                                    @can('Create-Country')
+                                    {{-- @endcan --}}
+                                    {{-- @can('Create-Country') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('countries.create') }}" class="nav-link">
                                                 <i class="fas fa-plus nav-icon"></i>
                                                 <p>Create</p>
                                             </a>
                                         </li>
-                                    @endcan
+                                    {{-- @endcan --}}
 
                                 </ul>
                             </li>
-                        @endcanAny
-                        @canAny('Index-City', 'Create-City')
+                        {{-- @endcanAny --}}
+                        {{-- @canAny('Index-City', 'Create-City') --}}
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="bi bi-house-fill"></i>
@@ -504,27 +504,27 @@
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
-                                    @can('Index-City')
+                                    {{-- @can('Index-City') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('cities.index') }}" class="nav-link">
                                                 <i class="fas fa-list-ul nav-icon"></i>
                                                 <p>Index</p>
                                             </a>
                                         </li>
-                                    @endcan
-                                    @can('Create-City')
+                                    {{-- @endcan --}}
+                                    {{-- @can('Create-City') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('cities.create') }}" class="nav-link">
                                                 <i class="fas fa-plus nav-icon"></i>
                                                 <p>Create</p>
                                             </a>
                                         </li>
-                                    @endcan
+                                    {{-- @endcan --}}
 
                                 </ul>
                             </li>
-                        @endcanAny
-                        @canAny('Index-Subject', 'Create-Subject')
+                        {{-- @endcanAny --}}
+                        {{-- @canAny('Index-Subject', 'Create-Subject') --}}
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="bi bi-journal-bookmark-fill"></i>
@@ -535,27 +535,27 @@
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
-                                    @can('Index-Subject')
+                                    {{-- @can('Index-Subject') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('subjects.index') }}" class="nav-link">
                                                 <i class="fas fa-list-ul nav-icon"></i>
                                                 <p>Index</p>
                                             </a>
                                         </li>
-                                    @endcan
-                                    @can('Create-Subject')
+                                    {{-- @endcan --}}
+                                    {{-- @can('Create-Subject') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('subjects.create') }}" class="nav-link">
                                                 <i class="fas fa-plus nav-icon"></i>
                                                 <p>Create</p>
                                             </a>
                                         </li>
-                                    @endcan
+                                    {{-- @endcan --}}
 
                                 </ul>
                             </li>
-                        @endcanAny
-                        @canAny('Index-course', 'Create-Course')
+                        {{-- @endcanAny --}}
+                        {{-- @canAny('Index-course', 'Create-Course') --}}
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="bi bi-book"></i>
@@ -565,30 +565,30 @@
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
-                                    @can('Index-course')
+                                    {{-- @can('Index-course') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('courses.index') }}" class="nav-link">
                                                 <i class="fas fa-list-ul nav-icon"></i>
                                                 <p>Index</p>
                                             </a>
                                         </li>
-                                    @endcan
-                                    @can('Create-Course')
+                                    {{-- @endcan --}}
+                                    {{-- @can('Create-Course') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('courses.create') }}" class="nav-link">
                                                 <i class="fas fa-plus nav-icon"></i>
                                                 <p>Create</p>
                                             </a>
                                         </li>
-                                    @endcan
+                                    {{-- @endcan --}}
 
                                 </ul>
                             </li>
-                        @endcanAny
+                        {{-- @endcanAny --}}
 
 
                         <li class="nav-header">WebSite Mangment</li>
-                        @canAny('Index-slider', 'Create-slider')
+                        {{-- @canAny('Index-slider', 'Create-slider') --}}
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="bi bi-images"></i>
@@ -598,26 +598,26 @@
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
-                                    @can('Index-slider')
+                                    {{-- @can('Index-slider') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('sliders.index') }}" class="nav-link">
                                                 <i class="fas fa-list-ul nav-icon"></i>
                                                 <p>Index</p>
                                             </a>
                                         </li>
-                                    @endcan
-                                    @can('Create-slider')
+                                    {{-- @endcan --}}
+                                    {{-- @can('Create-slider') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('sliders.create') }}" class="nav-link">
                                                 <i class="fas fa-plus nav-icon"></i>
                                                 <p>Create</p>
                                             </a>
                                         </li>
-                                    @endcan
+                                    {{-- @endcan --}}
 
                                 </ul>
                             </li>
-                        @endcanAny
+                        {{-- @endcanAny --}}
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="bi bi-chat-fill"></i>
@@ -643,7 +643,7 @@
 
                             </ul>
                         </li>
-                        @canAny('Index-review', 'Create-review')
+                        {{-- @canAny('Index-review', 'Create-review') --}}
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="bi bi-emoji-smile-fill"></i>
@@ -653,28 +653,28 @@
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
-                                    @can('Index-review')
+                                    {{-- @can('Index-review') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('reviews.index') }}" class="nav-link">
                                                 <i class="fas fa-list-ul nav-icon"></i>
                                                 <p>Index</p>
                                             </a>
                                         </li>
-                                    @endcan
-                                    @can('Create-review')
+                                    {{-- @endcan --}}
+                                    {{-- @can('Create-review') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('reviews.create') }}" class="nav-link">
                                                 <i class="fas fa-list-ul nav-icon"></i>
                                                 <p>Create</p>
                                             </a>
                                         </li>
-                                    @endcan
+                                    {{-- @endcan --}}
 
 
                                 </ul>
                             </li>
-                        @endcanAny
-                        @canAny('Index-question', 'Create-question')
+                        {{-- @endcanAny --}}
+                        {{-- @canAny('Index-question', 'Create-question') --}}
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="bi bi-patch-question"></i>
@@ -684,28 +684,28 @@
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
-                                    @can('Index-question')
+                                    {{-- @can('Index-question') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('questions.index') }}" class="nav-link">
                                                 <i class="fas fa-list-ul nav-icon"></i>
                                                 <p>Index</p>
                                             </a>
                                         </li>
-                                    @endcan
-                                    @can('Create-question')
+                                    {{-- @endcan --}}
+                                    {{-- @can('Create-question') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('questions.create') }}" class="nav-link">
                                                 <i class="fas fa-list-ul nav-icon"></i>
                                                 <p>Create</p>
                                             </a>
                                         </li>
-                                    @endcan
+                                    {{-- @endcan --}}
 
 
                                 </ul>
                             </li>
-                        @endcanAny
-                        @canAny('Index-link', 'Create-link')
+                        {{-- @endcanAny --}}
+                        {{-- @canAny('Index-link', 'Create-link') --}}
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="bi bi-browser-chrome"></i>
@@ -715,27 +715,27 @@
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
-                                    @can('Index-link')
+                                    {{-- @can('Index-link') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('links.index') }}" class="nav-link">
                                                 <i class="fas fa-list-ul nav-icon"></i>
                                                 <p>Index</p>
                                             </a>
                                         </li>
-                                    @endcan
-                                    @can('Create-link')
+                                    {{-- @endcan --}}
+                                    {{-- @can('Create-link') --}}
                                         <li class="nav-item">
                                             <a href="{{ route('links.create') }}" class="nav-link">
                                                 <i class="fas fa-plus nav-icon"></i>
                                                 <p>Create</p>
                                             </a>
                                         </li>
-                                    @endcan
+                                    {{-- @endcan --}}
 
 
                                 </ul>
                             </li>
-                        @endcanAny
+                        {{-- @endcanAny --}}
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="bi bi-person-plus-fill"></i>
